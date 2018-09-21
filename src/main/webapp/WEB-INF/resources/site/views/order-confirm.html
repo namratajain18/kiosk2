@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href='http://fonts.googleapis.com/css?family=Lobster|Karla'
+	rel='stylesheet' type='text/css' />
+<title>Order confirmation</title>
+</head>
+<body>
+	<div class="wrapper" ng-controller="orderController">
+	<table
+		style="Margin: 0 auto; background: #fefefe; border-collapse: collapse; border-spacing: 0; 
+			float: none; margin: 0 auto; padding: 0; text-align: center; vertical-align: top; width: 580px"
+		align="center">
+		<tbody>
+			<tr style="padding: 0; text-align: left; vertical-align: top">
+				<td
+					style="Margin: 0; border-collapse: collapse !important; color: #0a0a0a; 
+					font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; 
+					line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; 
+					word-wrap: break-word">
+					<table
+						style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; text-align: left; vertical-align: top; width: 100%">
+						<tbody>
+							<tr style="padding: 0; text-align: left; vertical-align: top">
+								<th
+									style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-top: 30px; padding-bottom: 16px; padding-left: 0; padding-right: 0; text-align: left; width: 298px">
+									<table
+										style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
+										<tbody>
+											<tr style="padding: 0; text-align: left; vertical-align: top">
+												<th
+													style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
+													<div style="float: left; margin-left: 28px; width: 365px">
+														<div
+															style="font-family: Roboto, sans-serif; font-size: 15px; font-weight: 700; line-height: 17px; margin-top: 0px">
+															{{order.restaurant}}</div>
+															<!-- th:text="${restaurant}"> -->
+
+														<div
+															style="font-family: Roboto, sans-serif; font-size: 15px; line-height: 17px; margin-top: 2px">
+															<span><a href="" value="94105" target="_blank">619
+																	Market St, San Francisco, CA 94105</a></span> <br /> <span><a
+																href="tel: (415)%20371-1351%20|%20(415)%20371-1352 "
+																value="+14153711351" target="_blank">Tel: (415)
+																	371-1351 | (415) 371-1352 </a></span>
+														</div>
+
+														<div
+															style="font-family: Roboto, sans-serif; font-size: 15px; line-height: 17px; margin-top: 2px">
+															<span>Order:</span> <span style="font-weight: 700">{{order.orderId}}</span>
+															<!-- th:text="${orderId}" -->
+														</div>
+													</div>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+
+								<th
+									style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-top: 30px; padding-bottom: 16px; padding-left: 0; padding-right: 0; text-align: left; width: 298px">
+									<table
+										style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
+										<tbody>
+											<tr style="padding: 0; text-align: left; vertical-align: top">
+												<th
+													style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
+													<div style="float: right; margin-right: 28px">
+														<img
+															style="float: right; width: 100px; padding-bottom: 10px"
+															 alt="logo" class="CToWUd" ng-src="{{order.logo}}"/>
+															 <!-- th:src="${logo}" -->
+													</div>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+							</tr>
+						</tbody>
+					</table>
+
+					<table
+						style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; text-align: left; vertical-align: top; width: 100%">
+						<tbody>
+							<tr style="padding: 0; text-align: left; vertical-align: top">
+								<th
+									style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 0; padding-right: 0; text-align: left; width: 298px">
+									<table
+										style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
+										<tbody>
+											<tr style="padding: 0; text-align: left; vertical-align: top">
+												<th
+													style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
+													<div style="float: left; margin-left: 28px; width: 298px">
+														<div style="margin-bottom: 30px"></div>
+
+														<div
+															style="border: solid 1px #000; margin-bottom: 40px; width: 310px">
+															<div style="margin: 10px">
+																<img style="height: 15px; width: 15px"
+																	src="https://ci6.googleusercontent.com/proxy/rybbSNqIbus2fmf7Z7yRcIKpvcYYbagehhmWPqRi7oC0HeN-BHSvEr_hN3mJtSgRtLCm7_Erqy93GD88085tm3szsQ4-cBaiN4CzEu6RRbZVil-F6XBzKiYBFPMx_l8v-fM6p7MkRtu7BBuM9lfQ0tc=s0-d-e1-ft#http://res.cloudinary.com/grubhub-assets/image/upload/v1509735770/ces_email/icon-bag-v3.png"
+																	alt="logo" class="CToWUd" /> <span
+																	style="font-family: Roboto, sans-serif; font-size: 24px; line-height: 27px; margin-top: 2px">
+																	<span style="font-weight: 700" ><!-- th:text="${pickUp}" -->{{order.packageType}}
+																</span>
+																</span>
+															</div>
+
+															<hr
+																style="border: none; border-top: 1px dashed #000; border-top-style: solid; border-top-width: 1px; display: block; height: 0; margin: 0; padding: 0; padding-top: 4px" />
+
+															<div
+																style="font-family: Roboto, sans-serif; font-size: 15px; line-height: 17px; margin: 4px 10px 10px">
+<!-- Will be ready at <b><span th:text="${#dates.format(orderDate, 'dd-MMM-yyyy hh:mm a')}">date</span></b> for <b><span th:text="${pickUp}">pickUp</span></b> (<span th:text="${#strings.equalsIgnoreCase(pickUp, 'delivery')} ? ${order.deliveryAddress} : ${location}">address</span>) -->
+																Will be ready at <b>
+																	<span>
+																		<!-- th:text="${#dates.format(orderDate, 'dd-MMM-yyyy hh:mm a')}" -->{{order.orderDate}}
+																	</span></b>
+																for <b><span>{{order.packageType}}</span></b> (
+																	<span >{{order.deliveryAddress == '' ? order.location : order.deliveryAddress}}</span>
+																	
+																	<!-- th:text="${#strings.equalsIgnoreCase(pickUp, 'delivery')} ? ${order.deliveryAddress} : ${location}" -->
+																	)
+																<!--Will be ready at <b><span th:text="${order.orderDate}">date</span></b> for <b><span th:text="${pickUp}">pickUp</span></b> (<span th:text="${#strings.equalsIgnoreCase(pickUp, 'delivery')} ? ${order.address} : ${location}">address</span>)-->
+															</div>
+														</div>
+
+														<table
+															class="m_-3676185319550798415m_-140447931111476895orderSummary">
+															<thead>
+																<tr>
+																	<td
+																		style="font-size: 12px; font-weight: normal; line-height: 13px; font-family: Roboto, sans-serif; margin-top: 2px; padding-right: 10px">
+																		Qty</td>
+
+																	<td
+																		style="font-size: 12px; font-weight: normal; line-height: 13px; width: 220.32px; font-family: Roboto, sans-serif; margin-top: 2px">
+																		Description</td>
+
+																	<td
+																		style="font-size: 12px; font-weight: normal; line-height: 13px; text-align: right; width: 32.4px; padding-right: 20px; font-family: Roboto, sans-serif; margin-top: 2px">
+																		Price</td>
+																</tr>
+
+																<tr>
+																	<td colspan="3">
+																		<div
+																			style="border-top-style: solid; border-top-width: 1px"></div>
+																	</td>
+																</tr>
+															</thead>
+
+															<tbody
+																class="m_-3676185319550798415m_-140447931111476895orderSummary__body" ng-repeat="item in order.menuItems track by $index">
+																<!-- th:each="item : ${order.menuItems}" -->
+																	<div>
+																	<tr style="vertical-align: text-top" >
+																		<td
+																			style="font-size: 15px; line-height: 17px; width: 4.05px; font-weight: bold; text-align: center; font-family: Roboto, sans-serif; margin-top: 2px; padding-right: 10px">
+																			<div 
+																				style="border: 1px solid #000; height: 20px; max-width: 26.15px; margin-top: 4px; padding: 4px">{{item.count}}<!-- th:text="${item.count}" --></div>
+																		</td>
+																		<td
+																			class="m_-3676185319550798415m_-140447931111476895orderSummary__data">
+																			<div style="font-family: Roboto, sans-serif; font-size: 15px; font-weight: 700; line-height: 17px; margin-top: 4px; margin-bottom: 5px; width: 198.45px">
+																				<!-- th:text="${item.name}" -->{{item.name}}</div>
+																			<div ng-if="item.size" style="clear:both;font-family:Roboto,sans-serif;font-size:12px;font-weight:400;line-height:13px;margin-top:4px;width:198.45px">Size: {{item.size}}</div>
+																			<!-- th:text="${item.size == null} ? '' : ${('Size: ' + item.size)}" -->
+																			<div ng-if="item.instructions" style="clear: both; font-family: Roboto, sans-serif; font-size: 12px; font-weight: 400; line-height: 13px; margin-top: 4px; width: 198.45px">
+																				<!-- th:text="${item.instructions == null} ? '' : ${('Instructions: ' + item.instructions)}" -->Instructions:{{item.instructions}}
+																			</div>
+																			<div ng-if="item.cookType" style="clear: both; font-family: Roboto, sans-serif; font-size: 12px; font-weight: 400; line-height: 13px; margin-top: 4px; width: 198.45px">
+																				<!-- th:text="${item.cookType == null} ? '' : ${('Temperature: ' + item.cookType)}" -->Temperature:{{item.cookType}}
+																			</div>
+																		</td>
+
+																		<td 
+																			style="font-size: 15px; line-height: 17px; width: 26.73px; font-weight: bold; text-align: right; font-family: Roboto, sans-serif; margin-top: 4px">
+																			<!-- th:text="${'$' + item.price * item.count}" -->{{'$' + item.price * item.count}}<!-- $0.00 --></td>
+																	</tr>
+
+																	<div ><!-- th:each="ingredient : ${item.ingredients}" -->
+																		<tr>
+																			<td colspan="3">
+																				<div
+																					style="border-top-style: solid; border-top-width: 1px; margin-top: 4px"></div>
+																			</td>
+																		</tr>
+
+																		<tr style="page-break-inside: avoid" ng-repeat="ingredient in item.ingredients">
+																			<td>
+																				<div>
+																					<img
+																						style="height: 15px; margin-top: 5px; width: 15px"
+																						src="https://ci6.googleusercontent.com/proxy/7VXYkdmvJq2kiXjPLTsTXoFbAD53H1MtTfWgUY2lqXD3k1ypBrSquF3CGFkuyqzn774KtLRW9yeKoVEdKXhZ8lcXxCgM4Zh3a5Y32rTIi94QX5EQaGqYjWBzgH-IV2VuqEdzA-W1uJI2kKhxNYU4QGIhX1V-=s0-d-e1-ft#http://res.cloudinary.com/grubhub-assets/image/upload/v1509735770/ces_email/icon-cutlery-v3.png"
+																						alt="logo" class="CToWUd" />
+																				</div>
+																			</td>
+
+																			<td
+																				style="font-family: Roboto, sans-serif; margin-top: 2px; font-size: 12px; font-weight: normal; line-height: 13px">
+																				<!-- th:text="${#strings.substringAfter(ingredient.name, 'NO ')}" -->{{ingredient.name}}</td>
+
+																			<td
+																				class="m_-3676185319550798415m_-140447931111476895orderSummary__data">
+																				<span 
+																				style="float: right; font-family: Roboto, sans-serif; font-size: 15px; font-weight: 700; line-height: 17px; margin-top: 2px; text-align: right; width: 50px">
+																					<!-- th:text="${ingredient.remove} ? 'YES' : 'NO'" -->{{ingredient.price}} </span>
+																			</td>
+																		</tr>
+																	</div>
+
+																	<div ><!-- th:each="extra : ${item.extras}" -->
+																		<tr>
+																			<td colspan="3">
+																				<div
+																					style="border-top-style: solid; border-top-width: 1px; margin-top: 4px"></div>
+																			</td>
+																		</tr>
+
+																		<tr style="page-break-inside: avoid" ng-repeat="extra in item.extras">
+																			<td>
+																				<div>
+																					<img
+																						style="height: 15px; margin-top: 5px; width: 15px"
+																						src="https://ci6.googleusercontent.com/proxy/7VXYkdmvJq2kiXjPLTsTXoFbAD53H1MtTfWgUY2lqXD3k1ypBrSquF3CGFkuyqzn774KtLRW9yeKoVEdKXhZ8lcXxCgM4Zh3a5Y32rTIi94QX5EQaGqYjWBzgH-IV2VuqEdzA-W1uJI2kKhxNYU4QGIhX1V-=s0-d-e1-ft#http://res.cloudinary.com/grubhub-assets/image/upload/v1509735770/ces_email/icon-cutlery-v3.png"
+																						alt="logo" class="CToWUd" />
+																				</div>
+																			</td>
+
+																			<td
+																				
+																				style="font-family: Roboto, sans-serif; margin-top: 2px; font-size: 12px; font-weight: normal; line-height: 13px">
+																				<!-- th:text="${#strings.substringAfter(extra.name, 'Add ')}" -->{{extra.name}}</td>
+
+																			<td
+																				class="m_-3676185319550798415m_-140447931111476895orderSummary__data">
+																				<span 
+																				style="float: right; font-family: Roboto, sans-serif; font-size: 15px; font-weight: 700; line-height: 17px; margin-top: 2px; text-align: right; width: 50px">
+																					<!-- th:text="${extra.remove} ? 'NO' : 'YES'" -->{{extra.price}} </span>
+																			</td>
+																		</tr>
+																	</div>
+
+																	<tr>
+																		<td colspan="3">
+																			<div
+																				style="border-top-style: solid; border-top-width: 1px"></div>
+																		</td>
+																	</tr>
+
+																
+
+																
+															</tbody>
+															<tbody>
+																<tr
+																	style="font-family: Roboto, sans-serif; margin-top: 0px">
+																	<td></td>
+
+																	<td
+																		style="font-size: 12px; font-weight: normal; line-height: 13px; text-align: right; padding-right: 20px">
+																		Subtotal</td>
+
+																	<td
+																		class="m_-3676185319550798415m_-140447931111476895orderSummary__data">
+																		<span 
+																		style="float: right; font-size: 15px; font-weight: 700; line-height: 17px; text-align: right; width: 70px">
+																			<!-- th:text="${'$' + order.orderPriceSubTotal}" -->${{order.orderPriceSubTotal}}</span>
+																	</td>
+																</tr>
+
+																<tr style="page-break-inside: avoid">
+																	<td></td>
+
+																	<td
+																		style="font-size: 12px; font-weight: normal; line-height: 13px; text-align: right; padding-right: 20px">
+																		Tax</td>
+
+																	<td><span
+																		style="float: right; font-size: 15px; font-weight: 700; line-height: 17px; text-align: right; width: 70px">
+																			<!-- th:text="${'$' + #numbers.formatDecimal(order.orderPriceTax, 1, 'COMMA', 2, 'POINT')}" -->
+																			${{order.orderPriceTax}}</span></td>
+																</tr>
+
+																<tr style="page-break-inside: avoid">
+																	<td></td>
+
+																	<td
+																		style="font-size: 12px; font-weight: normal; line-height: 13px; text-align: right; padding-right: 20px">
+																		Tip</td>
+
+																	<td><span
+																		
+																		style="float: right; font-size: 15px; font-weight: 700; line-height: 17px; text-align: right; width: 70px">
+																			<!-- th:text="${'$' + #numbers.formatDecimal(order.orderPriceTip, 1, 'COMMA', 2, 'POINT')}" -->${{order.orderPriceTip}} </span></td>
+																</tr>
+
+																<tr style="page-break-inside: avoid">
+																	<td></td>
+
+																	<td
+																		style="font-size: 12px; font-weight: normal; line-height: 13px; text-align: right; padding-right: 20px">
+																		Delivery</td>
+
+																	<td><span
+																		
+																		style="float: right; font-size: 15px; font-weight: 700; line-height: 17px; text-align: right; width: 70px">
+																			<!-- th:text="${'$' + order.orderDeliveryPrice}" -->
+																			${{order.orderDeliveryPrice}} </span></td>
+																</tr>
+
+																<tr>
+																	<td colspan="3">
+																		<div style="border-top-style:solid;border-top-width:1px"></div>
+																	</td>
+																</tr>
+					
+																<tr style="page-break-inside:avoid">
+																	<td></td>
+					
+																	<td style="font-size:12px;font-weight:normal;line-height:13px;text-align:right;padding-right:20px">
+																		TOTAL
+																	</td>
+					
+																	<td>
+																		<span  style="float:right;font-size:15px;font-weight:700;line-height:17px;text-align:right;width:70px">
+																			<!-- th:text="${'$' + order.orderPrice}" -->${{order.orderPrice}}
+																		</span>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+
+														<!--<div style="border:solid 1px #000;border-style:outset;height:50px;margin:30px 0 30px 0;width:310px">
+											<div style="margin:5px">
+												<img style="float:left;height:15px;padding-right:5px;padding-top:10px;width:15px" src="https://ci6.googleusercontent.com/proxy/zNFv5a5lkFyIFnze39KWhIkxAWpVuR2l3GjAGv6JDbZob8q0nMKIpAx-MrwKj65rugPVkeznYwo9AWicz9lpcfjU8U0mqcbd0RlE4S4gEtsvh_zxDN_WoX-GyXFiZMyMHKCJr6e1arimeL50yeFR4j28=s0-d-e1-ft#http://res.cloudinary.com/grubhub-assets/image/upload/v1509735770/ces_email/icon-cash-v3.png" alt="logo" class="CToWUd"/>
+
+												<div style="float:left;width:100px">
+													<span style="font-family:Roboto,sans-serif;font-size:19px;font-weight:700;line-height:22px;margin-top:7px">
+														PREPAID
+													</span>
+
+													<div style="font-family:Roboto,sans-serif;font-size:12px;font-weight:400;line-height:13px;margin-top:2px;white-space:nowrap">DO NOT CHARGE</div>
+												</div>
+											</div>
+										</div>-->
+
+														<!--<div style="font-family:Roboto,sans-serif;font-size:15px;line-height:17px;margin-top:2px">
+											<a href="https://orderemails.grubhub.com/019c4a86-3214-4740-9814-a702417fffe2/071f60f9-f36c-31a2-914a-2dc82e87736d" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=https://orderemails.grubhub.com/019c4a86-3214-4740-9814-a702417fffe2/071f60f9-f36c-31a2-914a-2dc82e87736d&amp;source=gmail&amp;ust=1520180976293000&amp;usg=AFQjCNEuVtFN33yJblJVBjNBRDf-Mex2Ug">Click here to confirm and view</a>
+										</div>-->
+													</div>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+
+								<th
+									style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 0; padding-right: 0; text-align: left; width: 298px">
+									<table
+										style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
+										<tbody>
+											<tr style="padding: 0; text-align: left; vertical-align: top">
+												<th
+													style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
+													<div
+														style="float: right; margin-left: 24px; margin-right: 28px">
+														<div style="margin-bottom: 30px"></div>
+
+														<div
+															style="border: solid 1px #000; margin-bottom: 10px; width: 270px">
+															<div style="margin: 10px">
+																<div
+																	style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">Customer
+																	Name:</div>
+
+																<div 
+																	style="font-family: Roboto, sans-serif; font-size: 14px; line-height: 16px; margin-top: 0px">
+																	<!-- th:text="${order.name}" -->{{order.name}}</div>
+
+																<div style="margin-bottom: 10px"></div>
+
+																<div
+																	style="font-family: Roboto, sans-serif; margin-top: 2px">
+																	<a  ng-href="{{order.phone}}" value="{{order.phone}}">
+																	<!-- th:text="${order.phone}"
+																		th:href="${'tel:' + order.phone}"
+																		th:value="${order.phone}" (000)
+																		000-0000-->
+																		{{order.phone}}
+																		</a>
+																</div>
+																<div style="font-family:Roboto,sans-serif;font-size:14px;font-weight:700;line-height:16px;margin-top:0px;white-space:nowrap">Text Msg will be sent once order</div>
+																<div style="font-family:Roboto,sans-serif;font-size:14px;font-weight:700;line-height:16px;margin-top:0px;white-space:nowrap">is ready.</div>
+															</div>
+														</div>
+
+														<div style="margin-bottom: 20px"></div>
+														<!--<div style="font-family:Roboto,sans-serif;font-size:14px;font-style:italic;line-height:16px;margin-top:0px">
+											<div>QUESTIONS? Customer service is<br> available at <a href="tel:(877)%20585-1085" value="+18775851085" target="_blank">(877) 585-1085</a></div>
+										</div>-->
+													</div>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+								</th>
+							</tr>
+						</tbody>
+					</table>
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="order.warnMsg"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								<!-- th:text="${warnMsg == null} ? '' : 'Warning!'" -->Warning!</div>
+
+							<div ng-if="order.warnMsg"
+								style="font-family: Roboto, sans-serif; font-size: 14px; line-height: 16px; margin-top: 0px">
+								<!-- th:text="${warnMsg == null} ? '' : ${warnMsg}" -->{{order.warnMsg}}
+								</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="merchId"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Merch Id: {{merchId}}
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="transDate"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Transaction Date: {{transDate}}
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="approvalCode"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Approval Code : {{approvalCode}}
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="nameOnCard"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Name On Card: {{nameOnCard}}
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="cardNumber"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Card Number : {{cardNumber}}
+							</div>
+						</div>
+					</div>
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="pinStatement"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Pin Statement: {{pinStatement}}
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="appId"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Application ID: {{appId}}
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="appLabel"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Application Label: {{appLabel}}
+							</div>
+						</div>
+					</div>
+					
+					<div style="margin: 0 auto; width: 600px">
+						<div style="margin: 10px">
+							<div ng-if="terminalId"
+								style="font-family: Roboto, sans-serif; font-size: 14px; font-weight: 700; line-height: 16px; margin-top: 0px; white-space: nowrap">
+								Terminal Id: {{terminalId}}
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

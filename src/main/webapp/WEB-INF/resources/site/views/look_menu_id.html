@@ -1,0 +1,342 @@
+<div class="floaty">
+    <ul class="floaty-list">
+        <a data-toggle="modal" data-target="#CreateMenuModal">
+            <li class="floaty-list-item floaty-list-item--blue">
+                <span class="floaty-list-item-label">Create menu</span>
+                <img src="site/assets/images/ingrad.svg" width="25" height="25" viewBox="0 0 24 24" class="absolute-center">
+            </li>
+        </a>
+        <a data-toggle="modal" data-target="#CreateCatModal">
+            <li class="floaty-list-item floaty-list-item--yellow">
+                <span class="floaty-list-item-label">Create categories</span>
+                <img src="site/assets/images/plus.svg" width="25" height="25" viewBox="0 0 24 24" class="absolute-center">
+            </li>
+        </a>
+    </ul>
+    <a href="">
+        <div class="floaty-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                 class="floaty-btn-icon floaty-btn-icon-plus absolute-center">
+                <path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"
+                      fill="#fff"/>
+                <path d="M0 0h24v24h-24z" fill="none"/>
+            </svg>
+            <img src="site/assets/images/btn-close.svg" width="30" height="30" viewBox="0 0 24 24"
+                 class="floaty-btn-icon floaty-btn-icon-create absolute-center">
+        </div>
+    </a>
+</div>
+
+<div class="" ng-controller="Category" id="ThatCrappyDiv">
+    <div class="row" style="height: 7rem;">
+    </div>
+    <div class="box-body">
+        <div class="card-box">
+            <div class="table-rep-plugin">
+                <div class="boxs">
+                    <div class="boxs-header">
+                        <h2>{{category_detail.data.name}}</h2>
+                    </div>
+                    <div class="boxs-body">
+                        <table class="table table-striped" ng-repeat="x in category_detail">
+                            <thead class="thead">
+                            <tr ng-if="$first">
+                                <th>&nbsp;</th>
+                                <th>name</th>
+                                <th>description</th>
+                                <th>price</th>
+                                <th>top picks</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="y in x.menuItems">
+                                <div id="myModal3" class="modal fade" role="dialog"
+                                     ng-controller="IdControllerIngredient">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;
+                                                </button>
+                                                <h4 class="modal-title">Create Menu</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                {{y.name}}{{x}}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <td>
+                                    <img ng-src="{{getImageUrl(y)}}" style="height: 50px; width: auto;">
+                                </td>
+                                <td>
+                                    <div class="procedure-details"
+                                         ng-class="{ 'hidden':  showDetails && showDetailsId == y.id }">
+                                        {{y.name}}
+                                    </div>
+                                    <div class="procedure-details"
+                                         ng-class="{ 'hidden': ! (showDetails && showDetailsId == y.id) }">
+                                        <input type="text" required ng-model="y.name" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div ng-class="{ 'hidden':  showDetails && showDetailsId == y.id }">
+                                        {{y.description.length > 75 ? y.description.slice(0, 70) + '...' :
+                                        y.description}}
+                                    </div>
+                                    <div class="procedure-details"
+                                         ng-class="{ 'hidden': ! (showDetails && showDetailsId == y.id) }">
+                                        <input type="text" required ng-model="y.description" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="procedure-details"
+                                         ng-class="{ 'hidden':  showDetails && showDetailsId == y.id }">
+                                        {{y.price}}
+                                    </div>
+                                    <div class="procedure-details"
+                                         ng-class="{ 'hidden': ! (showDetails && showDetailsId == y.id) }">
+                                        <input type="text" required ng-model="y.price" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="procedure-details"
+                                         ng-class="{ 'hidden':  showDetails && showDetailsId == y.id }">
+                                        {{y.topSeller ? 'Yes' : 'No'}}
+                                    </div>
+                                    <div class="procedure-details"
+                                         ng-class="{ 'hidden': ! (showDetails && showDetailsId == y.id) }">
+                                        <input type="checkbox" required ng-model="y.topSeller" class="form-control">
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <button ng-if="! (showDetails && showDetailsId == y.id)"
+                                            ng-click="toggleShowDetails(y.id);"
+                                            class="btn btn-xs"
+                                            href="#main"
+                                            style="border-radius: 80%; text-align: center">
+                                        <i class="fa fa-pencil-square-o"></i>
+                                    </button>
+
+                                    <button ng-if="(showDetails && showDetailsId == y.id)"
+                                            ng-click="update_menu(y); toggleShowDetails();"
+                                            class="btn btn-xs"
+                                            href="#main"
+                                            style="border-radius: 80%; text-align: center">
+                                        <i class="fa fa-check-circle"></i>
+                                    </button>
+                                    <button class="btn btn-default btn-xs"
+                                            ui-sref="osn1.updata1({id: y.id})"
+                                            ng-click="look_id(y.id);"
+                                            title="Edit ingredients">
+                                        <i class="fa fa-cutlery"></i>
+                                    </button>
+                                    <button class="btn btn-xs"
+                                            href="#custom-modal-menu-photo{{$index}}"
+                                            data-animation="door"
+                                            data-plugin="custommodal"
+                                            data-overlaySpeed="100"
+                                            data-overlayColor="#36404a"
+                                            data-target="#example{{$index}}"
+                                            style="border-radius: 80%; text-align: center">
+                                        <i class="fa fa-photo"></i>
+                                    </button>
+                                    <button ng-click="delete_menu(y)"
+                                            class="btn btn-danger btn-xs" href="#main">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                    <div>
+                                        <div id="custom-modal-menu-photo{{$index}}" class="modal-demo">
+                                            <h4 class="custom-modal-title">Update category</h4>
+                                            <div class="custom-modal-text">
+                                                <label class="file">
+                                                    <input type="file" id="file1" name="file" accept="image/*"
+                                                           aria-label="File browser">
+                                                    <span class="file-custom"></span>
+                                                </label>
+                                                <!--<div id="preview"></div>-->
+                                                <div class="row button-superadmin">
+                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                        <button class="btn btn-info waves-effect w-md waves-light canc"
+                                                                onclick="Custombox.close();">Cancel
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                        <button class="btn btn-info waves-effect w-md waves-light"
+                                                                ng-click="update_menu_photo(y);">
+                                                            Upload
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="text-align: center; ">
+        {{error}}
+    </div>
+
+
+    <div id="CreateMenuModal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="Create Menu"
+        aria-hidden="true"
+        ng-controller="AnswerControllerMenu">
+        <!--<button type="button" class="close" onclick="Custombox.close();">-->
+        <!--<img src="assets/images/close.svg"/>-->
+        <!--</button>-->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Create menu</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="answerForm" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_block">
+                                    <input class="form-control" type="text" name="" id="foodname_input"
+                                        required ng-model="answer.name"/>
+                                    <label for="foodname_input">
+                                        <span>Name</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input_block">
+                                    <input class="form-control" type="text" name="" id="foodprice_input"
+                                        required ng-model="answer.price"/>
+                                    <label for="foodprice_input">
+                                        <span>Price</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="checkbox">
+                                    <label for="foodtopSeller_input">
+                                        <input type="checkbox"
+                                            name=""
+                                            id="foodtopSeller_input"
+                                            ng-model="answer.topSeller">
+                                            Top picks
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input_block">
+                                    <input class="form-control" type="text" name=""
+                                        id="fooddesc_input" required ng-model="answer.description"/>
+                                    <label for="fooddesc_input">
+                                        <span>Description</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="hidden">
+                                <div class="">
+                                    <input class="form-control" type="hidden" name="" id="foodurl_input"
+                                        ng-model="answer.url" value=""/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row button-superadmin">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <button class="btn btn-info waves-effect w-md waves-light canc" onclick="Custombox.close();">
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <button class="btn btn-info waves-effect w-md waves-light"
+                                        ng-click="create_menu( category_detail.data.id)">Create
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="CreateCatModal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="Create Category"
+        aria-hidden="true"
+        ng-controller="AnswerControllerCategory">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Create category</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="answerForm" method="post">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_block">
+                                    <input class="form-control" type="text" name="" id="editname_input"
+                                        ng-model="answer.name" required/>
+                                    <label for="editname_input">
+                                        <span>Name</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input_block">
+                                    <input class="form-control" type="text" name=""
+                                        id="editdesk_input" ng-model="answer.description" required/>
+                                    <label for="editdesk_input">
+                                        <span>Description</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="hidden">
+                                <div class="input_block">
+                                    <input class="form-control" type="hidden" name="" id="editurl_input"
+                                        ng-model="answer.imgUrl" value=""/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row button-superadmin">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <button ng-click="add(Items);create_category()"
+                                        class="btn btn-info waves-effect w-md waves-light">Create
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

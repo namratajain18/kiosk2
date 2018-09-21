@@ -1,0 +1,79 @@
+<div ng-controller="IdControllerIngredient" class="modal-dialog modal1">
+    <div class="modal-header">
+        <!--<button type="button" class="close" ng-click="$close()" onclick="Custombox.close();">-->
+        <!--<img src="assets/images/close.svg">-->
+        <!--</button>-->
+        <h4 class="modal-title">Ingredient</h4>
+    </div>
+    <div class="modal-body">
+
+
+        <div class="custom-modal-text">
+            <table class="table   table-striped " ng-repeat="x in menu_detail">
+
+
+                <tr ng-repeat="y in x.ingredients" ng-dblclick="update_ingredient(y);">
+
+
+                    <td style="width: 80%;" ng-dblclick=" showDetails = ! showDetails; ">
+                        <div class="procedure-details" ng-class="{ 'hidden':  showDetails }">
+                            {{y.name}}
+                        </div>
+
+
+                        <div class="procedure-details" ng-class="{ 'hidden': ! showDetails }">
+                            <input type="text" required ng-model="y.name" class="form-control">
+                        </div>
+                    </td>
+
+                    <td style="width: 10%; margin-right: 15px;" ng-dblclick=" showDetails = ! showDetails; ">
+                        <button ng-click="delete_ingredient(y)" class="btn btn-delete btn-del" href="#main">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+
+                </tr>
+
+
+            </table>
+
+
+            <div class="btn-detail" ng-class="{ 'hidden':  showDetails_add_modal }">
+                {{error}}
+            </div>
+            <div class="btn-detail">
+
+
+                <button type="submit" ng-click=" showDetails_add_modal = ! showDetails_add_modal; "
+                        class="btn btn-add round-button"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="procedure-details" ng-class="{ 'hidden': ! showDetails_add_modal }">
+                <form name="answerForm" method="post">
+                    <table class="table table-hover table-inverse">
+                        <tbody>
+                        <tr>
+                            <td>name ingredient<span class="red"> *</span></td>
+                            <td>
+                                <input type="text" required ng-model="answer.name" class="form-control">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        <button type="submit" ng-click="create_ingredient(); " class="btn btn-updata">Add</button>
+
+                    </p>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info waves-effect w-md waves-light canc" data-dismiss="modal1"
+                ng-click="$close()">Close
+        </button>
+    </div>
+</div>

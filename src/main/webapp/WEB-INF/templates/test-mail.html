@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href='http://fonts.googleapis.com/css?family=Lobster|Karla' rel='stylesheet' type='text/css'/>
+  <title>Sgin up first email message</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Karla', sans-serif;
+      font-size: 100%;
+      margin: 0;
+      padding: 0;
+      color: #5f5f5f;
+      text-shadow: 0 0px, 1px 1px #ffffff;
+    }
+    h1 a, h1 a:hover {
+      color: #ea1212;
+      font-size: 1.71428571428571em; /* 24px/14px */
+      font-weight: normal;
+      text-shadow: 0 0px, 1px 1px #ffffff;
+      font-family: 'Lobster', cursive;
+      text-decoration:none;
+    }
+    h1 a span, h1 a:hover span {
+      color:#292929;
+      text-decoration:none;
+    }
+    a img {
+      border: none;
+    }
+    a {
+      color: #2993de;
+      text-decoration: none;
+    }
+    a:hover, a:active, a:focus {
+      color: #2993de;
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+    p {
+      line-height: 140%;
+      margin:2% 0;
+    }
+    .last {
+      margin:0;
+    }
+    hr {
+      margin: 10% 0;
+    }
+    section {
+      margin:2% 0;
+    }
+    .wrapper {
+      margin: 2% auto;
+      width: 93.75%;
+    }
+    .subject {
+      background:#CCC;
+    }
+    .button {
+      background: none repeat scroll 0 0 #e90e0e;
+      border: 0 none;
+      border-radius: 5px;
+      box-shadow: 0px 2px 0 0 #cd0000;
+      color: #fbfbfb;
+      cursor: pointer;
+      font-size: 1.42857142857143em;
+      margin: 10px 0;
+      padding: 5px 20px;
+      text-align:center;
+
+    }
+    .button a {
+      color: #ffffff;
+      text-decoration:none;
+      text-shadow: 0 0px, 1px 1px #6c6c6c;
+      font-weight:bold;
+    }
+    .clearfloat {
+      clear: both;
+      height: 0;
+      line-height: 0px;
+    }
+    /**************************/
+    /*********************************Begin Media Queries****************************************/
+    /**************************/
+    /* for 960px or less */
+    @media screen and (max-width: 960px) {
+      .wrapperBody, nav, footer {
+        width:93.75%; /* 960px/1024px  */
+        margin:0 auto;
+      }
+    }
+    /* for 768px or less */
+    @media screen and (max-width: 768px) {
+
+    }
+    /* for 480px or less */
+    @media screen and (max-width: 480px) {
+
+    }
+    /**************************/
+    /*********************************End Media Queries****************************************/
+    /**************************/
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <p>
+    Thank you for visiting Tri Tip Grill.
+  </p>
+  <p>
+    Your order number: <b><span th:text="${orderId}">orderId</span></b> and will be ready for <b><span th:text="${pickUp}">pickUp</span></b> in <b><span>5-8</span></b> minutes
+  </p>
+  <p>
+    We would love to hear your feedback. If you have any questions or concerns regarding PATRA then please get in touch with us at <a href="mailto:tritip@tritipgrill.com">tritip@tritipgrill.com</a>
+  </p>
+  <p class="last">
+    Sincerely<br/>
+    <a href="http://www.tritipgrill.com">Your Tri Tip Grill Team</a>  <br />
+
+  </p>
+</div>
+</body>
+</html>

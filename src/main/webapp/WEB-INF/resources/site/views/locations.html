@@ -1,0 +1,163 @@
+<div ng-controller="LocationsController">
+    <div class="floaty">
+        <ul class="floaty-list">
+            <span href="#custom-modal-create-location" data-animation="door" data-plugin="custommodal"
+                  data-overlaySpeed="100"
+                  data-overlayColor="#36404a">
+                <li class="floaty-list-item floaty-list-item--red">
+                    <span class="floaty-list-item-label">Add location</span>
+                    <img src="site/assets/images/pazl.svg" width="25" height="25" viewBox="0 0 24 24"
+                         class="absolute-center">
+                </li>
+            </span>
+        </ul>
+        <a href="">
+            <div class="floaty-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                     class="floaty-btn-icon floaty-btn-icon-plus absolute-center">
+                    <path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"
+                          fill="#fff"/>
+                    <path d="M0 0h24v24h-24z" fill="none"/>
+                </svg>
+                <img src="site/assets/images/btn-close.svg" width="30" height="30" viewBox="0 0 24 24"
+                     class="floaty-btn-icon floaty-btn-icon-create absolute-center">
+            </div>
+        </a>
+    </div>
+    <div class="boxs" style="width: 100%">
+        <h4 class="boxs-header">
+            Locations
+        </h4>
+        <div class="boxs-body">
+            <div class="panel-group"
+                 id="locAccordion"
+                 role="tablist"
+                 aria-multiselectable="true">
+                <div class="panel panel-default"
+                     ng-repeat="x in locations track by $index">
+                    <div class="panel-heading" role="tab" id="locHeading{{$index}}">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#locAccordion" data-target="#locCollapse{{$index}}"
+                               aria-expanded="false" aria-controls="locCollapse{{$index}}" class="collapsed">
+                                {{x.name}}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="locCollapse{{$index}}" class="panel-collapse collapse" role="tabpanel"
+                         aria-labelledby="locHeading{{$index}}" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <h4>
+                                Menus:
+                            </h4>
+                            <div class="panel-group"
+                                 id="locMenuAccordion"
+                                 role="tablist"
+                                 aria-multiselectable="true">
+                                <div class="panel panel-default"
+                                     ng-repeat="menu in x.menus track by $index">
+                                    <div class="panel-heading" role="tab" id="locMenuHeading{{$index}}">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               data-target="#loc{{$parent.$index}}MenuCollapse{{$index}}"
+                                               aria-expanded="false" aria-controls="locMenuCollapse{{$index}}"
+                                               class="collapsed">
+                                                {{menu.name}}
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="loc{{$parent.$index}}MenuCollapse{{$index}}"
+                                         class="panel-collapse collapse" role="tabpanel"
+                                         aria-labelledby="locMenuHeading{{$index}}" aria-expanded="false"
+                                         style="height: 0px;">
+                                        <div class="panel-body">
+                                            <h5 class="col-xs-12">
+                                                Assign devises to this menu
+                                            </h5>
+                                            <div class="col-xs-3" ng-repeat="device in menu.locationDevices">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="{{device.uuid}}"
+                                                               ng-model="device.checked">
+                                                        <span class="checkbox-material">
+                                                            <span class="check">
+                                                            </span>
+                                                        </span>
+                                                        {{device.deviceType}} #{{device.sysId}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-success btn-raised pull-right"
+                                                        ng-click="assignDevicesToMenu(x, menu)">
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>
+                                Reassign to this location:
+                            </h4>
+                            <div class="col-xs-12">
+                                <div class="col-xs-3" ng-repeat="device in x.locationDevices">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="{{device.uuid}}" ng-model="device.checked">
+                                            <span class="checkbox-material">
+                                                <span class="check">
+                                                </span>
+                                            </span>
+                                            {{device.deviceType}} #{{device.sysId}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <button class="btn btn-success btn-raised pull-right"
+                                            ng-click="assignDevicesToLoc(x)">
+                                        Assign
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="custom-modal-create-location" class="modal-demo" ng-controller="CreateLocationController">
+    <h4 class="custom-modal-title">Create location</h4>
+    <div class="custom-modal-text">
+        <form name="answerForm" method="post">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="input_block">
+                        <input ng-class="{'has_value':answer.name}" type="text" name=""
+                               class="form-control"
+                               id="nameinput" required ng-model="answer.name"/>
+                        <label for="nameinput">
+                            <span>Name</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row button-superadmin">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <button class="btn btn-info waves-effect w-md waves-light canc"
+                                onclick="Custombox.close();">
+                            Cancel
+                        </button>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <button class="btn btn-info waves-effect w-md waves-light" ng-click="create_location()"
+                                ng-disabled="answerForm.$invalid">Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

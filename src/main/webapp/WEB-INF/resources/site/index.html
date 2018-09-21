@@ -1,0 +1,429 @@
+<!DOCTYPE >
+<html>
+<head>
+    <title>Admin</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="site/image/logo.png">
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link href="site/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="site/css/custombox.min.css" rel="stylesheet"/>
+    <!--link href="css/css.css" rel="stylesheet">
+
+
+    <link href="css/core.css" rel="stylesheet" type="text/css"/>
+    <link href="css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="css/icons.css" rel="stylesheet" type="text/css"/>
+    <link href="css/pages.css" rel="stylesheet" type="text/css"/>
+    <link href="css/menu.css" rel="stylesheet" type="text/css"/-->
+    <link href="site/css/theme.css" rel="stylesheet">
+    <link href="site/css/floaty-list.css" rel="stylesheet">
+    <link href="site/css/custom-modal.css" rel="stylesheet"/>
+    <link href="site/css/custom.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="myApp" style=" background: #ebeff2;">
+
+
+<ui-view name="login"></ui-view>
+<ui-view name="header"></ui-view>
+<div class="display-f">
+    <aside id="leftmenu"
+        class="theme-default aside-fixed"
+        style="margin: 0 !important;">
+        <div id="leftmenu-wrap" ng-hide="allowleftbar">
+            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+                <div class="panel-group slim-scroll" role="tablist" style="overflow: hidden; width: auto; height: 100%;">
+                    <div class="panel panel-default">
+                        <div id="leftmenuNav" class="panel-collapse collapse in" role="tabpanel">
+                            <div class="panel-body">
+                                <!--  NAVIGATION Content -->
+                                <ul id="navigation">
+                                    <li><a ui-sref="osn1.updata_category"><i class="fa fa-table"></i> <span>Categories</span></a></li>
+                                    <li><a ui-sref="osn1.locations"><i class="fa fa-building"></i> <span>Locations</span></a></li>
+                                    <li><a ui-sref="osn1.devices"><i class="fa fa-television"></i> <span>Devices</span></a></li>
+                                    <li><a ui-sref="osn1.menus"><i class="fa fa-list-alt"></i> <span>Menus</span></a></li>
+                                    <li><a ui-sref="osn1.updata"><i class="fa fa-user-o"></i> <span>Users</span></a></li>
+                                    <!--li class="dropdown"> <a role="button" tabindex="0"><i class="fa fa-envelope"></i> <span>Mail Box</span> <span class="badge bg-blue">6</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="mail-inbox.html"><i class="fa fa-angle-right"></i> Inbox <span class="label label-success">new</span></a></li>
+                                            <li><a href="mail-compose.html"><i class="fa fa-angle-right"></i> Compose Mail</a></li>
+                                            <li><a href="mail-single.html"><i class="fa fa-angle-right"></i> Single Mail</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="material.html"><i class="fa fa-arrow-right"></i> <span>Material Elements</span></a></li>
+                                    <li class="dropdown"> <a role="button" tabindex="0"><i class="fa fa-list"></i> <span>Form Elements</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="form-common.html"><i class="fa fa-angle-right"></i> Common Elements</a></li>
+                                            <li><a href="form-validate.html"><i class="fa fa-angle-right"></i> Validation Elements</a></li>
+                                            <li><a href="form-wizard.html"><i class="fa fa-angle-right"></i> Form Wizard <span class="badge br-10 badge-success">13</span></a></li>
+                                            <li><a href="form-upload.html"><i class="fa fa-angle-right"></i> File Upload</a></li>
+                                            <li><a href="form-imgcrop.html"><i class="fa fa-angle-right"></i> Image Crop</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"> <a role="button" tabindex="0"><i class="fa fa-leaf"></i> <span>Oakleaf UI Kit</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="ui-general.html"><i class="fa fa-angle-right"></i>General Elements</a></li>
+                                            <li><a href="ui-navigation.html"><i class="fa fa-angle-right"></i>Navigation &amp; Accordions</a></li>
+                                            <li><a href="ui-widgets.html"><i class="fa fa-angle-right"></i>Widgets</a></li>
+
+                                            <li><a href="ui-lists.html"><i class="fa fa-angle-right"></i>Lists</a></li>
+                                            <li><a href="ui-modals.html"><i class="fa fa-angle-right"></i>Modals</a></li>
+                                            <li><a href="ui-icons.html"><i class="fa fa-angle-right"></i>Icons</a></li>
+                                            <li><a href="ui-typography.html"><i class="fa fa-angle-right"></i>Typography</a></li>
+                                            <li><a href="ui-boxss.html"><i class="fa fa-angle-right"></i>boxss</a></li>
+                                            <li><a href="ui-portlets.html"><i class="fa fa-angle-right"></i>Portlets</a></li>
+                                            <li><a href="ui-grid.html"><i class="fa fa-angle-right"></i>Grid</a></li>
+                                            <li><a href="ui-alerts.html"><i class="fa fa-angle-right"></i>Alerts &amp; Notifications</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="charts.html"><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a></li>
+                                    <li class="dropdown"> <a role="button" tabindex="0"><i class="fa fa-delicious"></i> <span>Layouts Format</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="layout-boxed.html"><i class="fa fa-angle-right"></i> Boxed layout</a></li>
+                                            <li><a href="layout-fullwidth.html"><i class="fa fa-angle-right"></i> Full-width layout <span class="label  label-success">new</span></a></li>
+                                            <li><a href="layout-leftmenu-sm.html"><i class="fa fa-angle-right"></i> Small leftmenu</a></li>
+                                            <li><a href="layout-leftmenu-xs.html"><i class="fa fa-angle-right"></i> Extra-small leftmenu</a></li>
+                                            <li><a href="layout-offcanvas.html"><i class="fa fa-angle-right"></i> Off-canvas leftmenu</a></li>
+                                            <li><a href="layout-rtl.html"><i class="fa fa-angle-right"></i> RTL layout</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a role="button" tabindex="0"><i class="fa fa-table"></i> <span>Tables</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="tables-bootstrap.html"><i class="fa fa-angle-right"></i> Bootstrap Tables</a></li>
+                                            <li><a href="tables-static.html"><i class="fa fa-angle-right"></i>Static Tables</a></li>
+                                            <li><a href="tables-footable.html"><i class="fa fa-angle-right"></i> FooTable</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a role="button" tabindex="0"><i class="fa fa-map-o"></i> <span>Maps</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="maps-vector.html"><i class="fa fa-angle-right"></i> Vector Maps</a></li>
+                                            <li><a href="maps-google.html"><i class="fa fa-angle-right"></i> Google Maps</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a role="button" tabindex="0"><i class="fa fa-lock"></i> <span>Authentication</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="login.html"><i class="fa fa-angle-right"></i> Login Page</a></li>
+                                            <li><a href="signup.html"><i class="fa fa-angle-right"></i> Signup Page</a></li>
+                                            <li><a href="forgotpass.html"><i class="fa fa-angle-right"></i> Forgot Password Page</a></li>
+                                            <li><a href="page-offline.html"><i class="fa fa-angle-right"></i> Page Offline</a></li>
+                                            <li><a href="locked.html"><i class="fa fa-angle-right"></i> Locked Screen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a role="button" tabindex="0"><i class="fa fa-desktop"></i> <span>Extra Pages</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li><a href="page404.html"><i class="fa fa-angle-right"></i> Page 404</a></li>
+                                            <li><a href="page500.html"><i class="fa fa-angle-right"></i> Page 500</a></li>
+                                            <li><a href="gallery.html"><i class="fa fa-angle-right"></i> Gallery</a></li>
+                                            <li><a href="timeline.html"><i class="fa fa-angle-right"></i> Timeline</a></li>
+                                            <li><a href="chat.html"><i class="fa fa-angle-right"></i> Chat</a></li>
+                                            <li><a href="invoices.html"><i class="fa fa-angle-right"></i> Invoices</a></li>
+                                            <li><a href="search-results.html"><i class="fa fa-angle-right"></i> Search Results</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="drive.html"><i class="fa fa-cloud-upload"></i> <span>Drive</span></a></li>
+                                    <li><a href="profile.html"><i class="fa fa-user"></i> <span>User Profile</span></a></li>
+                                    <li><a href="landing-page.html"><i class="fa fa-star"></i> <span>Landing Page</span></a></li>
+                                    <li><a href="calendar.html"><i class="fa fa-calendar-check-o"></i> <span>Calendar</span> <span class="label label-primary">new events</span></a></li>
+                                    <li class="dropdown"> <a role="button" tabindex="0"><i class="fa fa-magic"></i> <span>Menu Levels</span><i class="fa fa-plus"></i></a>
+                                        <ul>
+                                            <li class="dropdown submenu"> <a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 1.1<i class="fa fa-plus"></i></a>
+                                                <ul>
+                                                    <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 2.1</a></li>
+                                                    <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 2.2</a></li>
+                                                    <li class="dropdown submenu"> <a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 2.3<i class="fa fa-plus"></i></a>
+                                                        <ul>
+                                                            <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 3.1</a></li>
+                                                            <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 3.2</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown submenu"> <a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 1.2<i class="fa fa-plus"></i></a>
+                                                <ul>
+                                                    <li class="dropdown submenu"> <a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 2.1<i class="fa fa-plus"></i></a>
+                                                        <ul>
+                                                            <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 3.1</a></li>
+                                                            <li class="dropdown submenu"> <a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 3.2<i class="fa fa-plus"></i></a>
+                                                                <ul>
+                                                                    <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 4.1</a></li>
+                                                                    <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 4.2</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 3.3</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a role="button" tabindex="0"><i class="fa fa-angle-right"></i> Menu Level 2.2</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li-->
+                                </ul>
+                                <!--/ NAVIGATION Content -->
+                            </div>
+                        </div>
+                    </div>
+                    <!--div class="panel settings panel-default">
+                        <div class="panel-heading" role="tab">
+                            <h4 class="panel-title"><a data-toggle="collapse" href="#leftmenuControls">General Settings <i class="fa fa-angle-up"></i></a></h4>
+                        </div>
+                        <div id="leftmenuControls" class="panel-collapse collapse in" role="tabpanel">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-xs-8">Switch ON</label>
+                                        <div class="col-xs-4 control-label">
+                                            <div class="togglebutton">
+                                                <label>
+                                                    <input type="checkbox" checked=""><span class="toggle"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-xs-8">Switch OFF</label>
+                                        <div class="col-xs-4 control-label">
+                                            <div class="togglebutton">
+                                                <label>
+                                                    <input type="checkbox"><span class="toggle"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone-sidbar">
+                            <div class="text-center-folded"> <span class="pull-right pull-none-folded">60%</span> <span class="hidden-folded">Milestone</span>                            </div>
+                            <div class="progress progress-xxs m-t-sm dk">
+                                <div class="progress-bar progress-bar-info" style="width: 60%;"> </div>
+                            </div>
+                            <div class="text-center-folded"> <span class="pull-right pull-none-folded">35%</span> <span class="hidden-folded">Release</span> </div>
+                            <div class="progress progress-xxs m-t-sm dk">
+                                <div class="progress-bar progress-bar-primary" style="width: 35%;"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 86px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 335.918px;"></div>
+                <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                -->
+            </div>
+        </div>
+    </aside>
+    <div class="container" style="padding-top: 15px;">
+        <ui-view name="user"></ui-view>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <ui-view name="content"></ui-view>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <ui-view name="menu"></ui-view>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="site/js/jquery.min.js"></script>
+<script src="site/js/script/angular.min.js"></script>
+<script src="site/js/script/jquery.cookie.js"></script>
+<script src="site/js/script/angular-resource.min.js"></script>
+<script src="site/js/script/angular-route.js"></script>
+<script src="site/js/js.cookie.min.js"></script>
+<script src="site/js/script/ui.js"></script>
+<script src="site/js/script/angular-ui-router.min.js"></script>
+<script src="site/js/script/angularLocalStorage.min.js"></script>
+
+<!--<script src="js/script/ui-bootstrap-tpls.js"></script>-->
+<!--<script src="js/script/paginator.js"></script>-->
+<script src="site/js/script/angular-slider.js"></script>
+<script src="site/js/script/app.js"></script>
+<script src="site/js/angular-local-storage.js"></script>
+<script src="site/js/app.js"></script>
+<script src="site/js/controlles/UserController.js"></script>
+<script src="site/js/controlles/MenusController.js"></script>
+<script src="site/js/controlles/LocationsController.js"></script>
+<script src="site/js/controlles/DevicesController.js"></script>
+<script src="site/js/controlles/CategoryController.js"></script>
+<script src="site/js/controlles/IdControllerMenu.js"></script>
+<script src="site/js/controlles/IdControllerIngredient.js"></script>
+<script src="site/js/controlles/LoginController.js"></script>
+<script src="site/js/controlles/AnswerController.js"></script>
+<script src="site/js/controlles/CreateMenuController.js"></script>
+<script src="site/js/controlles/CreateDeviceController.js"></script>
+<script src="site/js/controlles/CreateLocationController.js"></script>
+<script src="site/js/controlles/AnswerControllerCategory.js"></script>
+<script src="site/js/controlles/AnswerControllerMenu.js"></script>
+<script src="site/js/controlles/AnswerControllerIngredient.js"></script>
+<script src="site/js/services/Factory.js"></script>
+
+<script src="site/js/bootstrap/bootstrap.js"></script>
+<script src="site/js/bootstrap/material.min.js"></script>
+<script src="site/js/vendorscripts.bundle.js"></script>
+
+<script src="site/js/custombox.min.js"></script>
+
+<script src="site/js/controlles/OrderController.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#flips").click(function () {
+            $("#mobi-menu").slideDown("slow");
+            $(".main_mnu").hide();
+        });
+    });
+
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#mobi-menu").slideUp("fast");
+            $(".main_mnu").show("slow");
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    $('input').change(function () {
+        if ($(this).val())
+            $(this).addClass('has_value');
+        else
+            $(this).removeClass('has_value');
+    });
+</script>
+
+<script>
+    function initCustomModal(e) {
+        e.preventDefault();
+        Custombox.open({
+            target: $(this).attr("href"),
+            effect: $(this).attr("data-animation"),
+            overlaySpeed: $(this).attr("data-overlaySpeed"),
+            overlayColor: $(this).attr("data-overlayColor")
+        });
+        e.stopImmediatePropagation();
+    }
+
+    $(document).on('click', '[data-plugin="custommodal"]', initCustomModal);
+</script>
+
+<script type="text/javascript">
+    $(document).on('change', '#file', function () {
+        var file = this.files[0],
+            filename = file.name,
+            $label = $(this).next('.file-custom'),
+            $preview = $('#preview'),
+            img = document.createElement("img"),
+            reader = new FileReader();
+
+
+        img.file = file;
+        img.classList.add("img-responsive");
+        $preview.html(img);
+
+        reader.onload = (function (aImg) {
+            return function (e) {
+                aImg.src = e.target.result;
+                window.currentUploadedFile = file;
+            };
+        })(img);
+
+        reader.readAsDataURL(file);
+
+        $label
+            .attr('data-label', filename)
+            .addClass('active');
+    });
+</script>
+
+<script type="text/javascript">
+	$(document).on('change', '#file1', function () {
+		var file = this.files[0],
+			filename = file.name,
+			$label = $(this).next('.file-custom'),
+			$preview = $('#preview1'),
+			img = document.createElement("img"),
+			reader = new FileReader();
+
+
+		img.file = file;
+		img.classList.add("img-responsive");
+		$preview.html(img);
+
+		reader.onload = (function (aImg) {
+			return function (e) {
+				aImg.src = e.target.result;
+				window.currentUploadedFile = file;
+			};
+		})(img);
+
+		reader.readAsDataURL(file);
+
+		$label
+			.attr('data-label', filename)
+			.addClass('active');
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).on('change', '#file2', function () {
+		var file = this.files[0],
+			filename = file.name,
+			$label = $(this).next('.file-custom'),
+			$preview = $('#preview2'),
+			img = document.createElement("img"),
+			reader = new FileReader();
+
+		img.file = file;
+		img.classList.add("img-responsive");
+		$preview.html(img);
+
+		reader.onload = (function (aImg) {
+			return function (e) {
+				aImg.src = e.target.result;
+			};
+		})(img);
+
+		reader.readAsDataURL(file);
+
+		$label
+			.attr('data-label', filename)
+			.addClass('active');
+	});
+</script>
+
+<script type="text/javascript">
+    $(document).on('change', '#file3', function () {
+        var file = this.files[0],
+            filename = file.name,
+            $label = $(this).next('.file-custom'),
+            $preview = $('#preview3'),
+            img = document.createElement("img"),
+            reader = new FileReader();
+
+        img.file = file;
+        img.classList.add("img-responsive");
+        $preview.html(img);
+
+        reader.onload = (function (aImg) {
+            return function (e) {
+                aImg.src = e.target.result;
+            };
+        })(img);
+
+        reader.readAsDataURL(file);
+
+        $label
+            .attr('data-label', filename)
+            .addClass('active');
+    });
+</script>
+</body>
+</html>

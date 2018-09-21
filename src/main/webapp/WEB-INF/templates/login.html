@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="full-height">
+<head>
+    <title>Authorization</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Styles-->
+    <link rel="stylesheet" th:href="@{/admin/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/admin/css/font-awesome.min.css}" />
+    <link rel="stylesheet" th:href="@{/admin/css/unicorn.css}" />
+    <link rel="stylesheet" th:href="@{/admin/css/index.css}" />
+    <!--Components-->
+    <script th:src="@{/admin/js/jquery.min.js}"></script>
+    <script th:src="@{/admin/js/bootstrap.min.js}"></script>
+    <script th:src="@{/admin/js/unicorn.js}"></script>
+    <script th:src="@{/admin/js/jquery.nicescroll.min.js}"></script>
+    <script th:src="@{/admin/js/index.js}"></script>
+    <!--Engine-->
+    <script th:src="@{/admin/js/angular.min.js}"></script>
+    <script th:src="@{/admin/js/app.js}"></script>
+</head>
+<body data-color="grey" class="flat grey-bg full-height" ng-app="AdminApp">
+<div class="container full-height">
+    <div class="row full-height">
+        <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 full-height display-table">
+            <!--Login controller-->
+            <div ng-controller="loginController" class="display-table-cell">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon">
+                            <i class="fa fa-th"></i>
+                        </span>
+                        <h5>Authorization</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form novalidate="novalidate" class="form-horizontal log-in-form" action="/login.action" method="post">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="text" class="form-control input-sm" spellcheck="false" autocomplete="off" required="required" ng-model="guest.login" name="login" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                        <input type="password" class="form-control input-sm" spellcheck="false" autocomplete="off" required="required" ng-model="guest.password" name="password" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-inverse btn-sm">
+                                    <span class="fa fa-sign-in"></span> Sign in
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         updateCheck="true"
+         monitoring="autodetect"
+         dynamicConfig="true">
+
+    <diskStore path="java.io.tmpdir" />
+
+    <cache name="movieFindCache"
+           maxEntriesLocalHeap="10000"
+           maxEntriesLocalDisk="1000"
+           eternal="false"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="60" timeToLiveSeconds="120"
+           memoryStoreEvictionPolicy="LRU"
+           transactionalMode="off">
+        <persistence strategy="localTempSwap" />
+    </cache>
+    <cache name="movieFindCache2"
+           maxEntriesLocalHeap="200000"
+           maxEntriesLocalDisk="20000"
+           eternal="false"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="60" timeToLiveSeconds="120"
+           memoryStoreEvictionPolicy="LRU"
+           transactionalMode="off">
+    </cache>
+
+
+</ehcache>
